@@ -1,0 +1,31 @@
+{
+  "name": "ivao.js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jules010209/ivao.js.git"
+  },
+  "keywords": [
+    "ivao",
+    "nodejs",
+    "api"
+  ],
+  "author": "Jules010209",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jules010209/ivao.js/issues"
+  },
+  "homepage": "https://github.com/Jules010209/ivao.js#readme",
+  "dependencies": {
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.0"
+  }
+}
