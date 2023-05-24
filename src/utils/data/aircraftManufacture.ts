@@ -2,16 +2,16 @@ import axios from 'axios';
 import {
     AircraftManufacture as AircraftManufactureDto
 } from '../../types/data/index';
-import { Client } from '../..';
+import { userClient } from '../..';
 
 export class aircraftManufacture {
-    constructor(private readonly client: Client) {};
+    constructor() {};
 
     async get(id: number): Promise<AircraftManufactureDto> {
         return await axios.get<AircraftManufactureDto>(`https://api.ivao.aero/v2/aircrafts/manufacturers/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);
@@ -21,7 +21,7 @@ export class aircraftManufacture {
         return await axios.get<AircraftManufactureDto[]>('https://api.ivao.aero/v2/aircrafts/manufacturers', {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);

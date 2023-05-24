@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { Aircraft } from '../../types/data/index';
-import { Client } from '../..';
+import { userClient } from '../..';
 
 export class airlines {
-    constructor(private readonly client: Client) {};
+    constructor() {};
 
     async get(airlineIcao: string): Promise<Aircraft> {
         return await axios.get<Aircraft>(`https://api.ivao.aero/v2/airlines/${airlineIcao}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);
@@ -19,7 +19,7 @@ export class airlines {
         return await axios.get<Aircraft[]>('https://api.ivao.aero/v2/airlines/all', {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);
@@ -29,9 +29,15 @@ export class airlines {
         return await axios.get<Buffer>(`https://api.ivao.aero/v2/airlines/${airlineIcao}/logo`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
-        }).then(data => data.data);
+        }).then(data => {
+            let newData = Buffer.from(data.data);
+            let str = newData.toString();
+            newData = Buffer.from(str);
+    
+            return newData;
+        });
     }
 }

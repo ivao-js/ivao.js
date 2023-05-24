@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { AircraftTransponderType } from '../../types/data/index';
-import { Client } from '../..';
+import { userClient } from '../..';
 
 export class aircraftTransponderTypes {
-    constructor(private readonly client: Client) {};
+    constructor() {};
 
     async get(transponderId: string): Promise<AircraftTransponderType> {
         return await axios.get<AircraftTransponderType>(`https://api.ivao.aero/v2/aircrafts/transponderTypes/${transponderId}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);
@@ -19,7 +19,7 @@ export class aircraftTransponderTypes {
         return await axios.get<AircraftTransponderType[]>('https://api.ivao.aero/v2/aircrafts/transponderTypes', {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': this.client.options.apiKey
+                'apiKey': userClient.options.apiKey
             },
             responseType: 'json',
         }).then(data => data.data);
