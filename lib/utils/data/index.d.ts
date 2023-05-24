@@ -9,4 +9,4 @@ export declare class aircraft {
     aircraftTransponderTypes: aircraftTransponderTypes;
     aircrafts: aircrafts;
 }
-export * as airlines from './airlines';
+export { airlines } from './airlines';

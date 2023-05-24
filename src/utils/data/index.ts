@@ -12,4 +12,4 @@ export class aircraft {
     public aircrafts: aircrafts;
 }
 
-export * as airlines from './airlines';
+export { airlines } from './airlines';
