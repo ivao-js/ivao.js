@@ -2,7 +2,6 @@ import { aircraftManufacture } from './aircraftManufacture';
 import { aircraftEquipment } from './aircraftEquipment';
 import { aircraftTransponderTypes } from './aircraftTransponderTypes';
 import { aircrafts } from './aircrafts';
-import { Client } from '../..';
 
 export class aircraft {
     constructor() {};

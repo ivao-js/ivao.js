@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { Aircraft } from '../../types/data/index';
 import { userClient } from '../..';
+import { Airlines } from '../../types/data';
 
 export class airlines {
     constructor() {};
 
-    async get(airlineIcao: string): Promise<Aircraft> {
-        return await axios.get<Aircraft>(`https://api.ivao.aero/v2/airlines/${airlineIcao}`, {
+    async get(airlineIcao: string): Promise<Airlines> {
+        return await axios.get<Airlines>(`https://api.ivao.aero/v2/airlines/${airlineIcao}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': userClient.options.apiKey
@@ -15,8 +15,8 @@ export class airlines {
         }).then(data => data.data);
     }
 
-    async all(): Promise<Aircraft[]> {
-        return await axios.get<Aircraft[]>('https://api.ivao.aero/v2/airlines/all', {
+    async all(): Promise<Airlines[]> {
+        return await axios.get<Airlines[]>('https://api.ivao.aero/v2/airlines/all', {
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': userClient.options.apiKey
