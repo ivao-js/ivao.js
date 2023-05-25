@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { userClient } from '../..';
-import { ATCPosition, Airport, Metar, Notam, Runway, ShortTaf, Squawk, SquawkGenerated, Taf } from '../../types/data';
+import { BasATCPosition, Airport, Metar, Notam, Runway, ShortTaf, Squawk, SquawkGenerated, Taf } from '../../types/data';
 
 export class airports {
     constructor() {};
@@ -25,8 +25,8 @@ export class airports {
         }).then(data => data.data);
     }
 
-    async positions(icao: string): Promise<ATCPosition[]> {
-        return await axios.get<ATCPosition[]>(`https://api.ivao.aero/v2/airports/${icao}/ATCPositions`, {
+    async positions(icao: string): Promise<BasATCPosition[]> {
+        return await axios.get<BasATCPosition[]>(`https://api.ivao.aero/v2/airports/${icao}/ATCPositions`, {
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': userClient.options.apiKey

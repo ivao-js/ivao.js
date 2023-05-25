@@ -14,3 +14,4 @@ export class aircraft {
 
 export { airlines } from './airlines';
 export { airports } from './airports';
+export { atcPositions } from './atcPositions';

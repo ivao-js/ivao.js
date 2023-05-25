@@ -1,5 +1,9 @@
-import { Client } from '..';
-import { aircraft, airlines, airports } from './data/index';
+import {
+    aircraft,
+    airlines,
+    airports,
+    atcPositions
+} from './data/index';
 
 export class data {
     constructor() {};
@@ -7,4 +11,5 @@ export class data {
     public aircraft = new aircraft();
     public airlines = new airlines();
     public airports = new airports();
+    public atcPositions = new atcPositions();
 }

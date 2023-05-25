@@ -1,24 +1,35 @@
 export interface Airport {
-    icao: string,
-    iata: string,
-    name: string,
-    city: string,
-    countryId: string,
-    latitude: number,
-    longitude: number,
-    military: boolean,
-    faaCode: string,
-    atcCallsign: string,
-    state: string,
-    centerId: string,
-    firId: string,
-    elevation: number,
-    magnetic: string,
-    transitionAltitude: number,
-    web: string
+    icao: string;
+    iata: string;
+    name: string;
+    city: string;
+    countryId: string;
+    latitude: number;
+    longitude: number;
+    military: boolean;
+    faaCode: string;
+    atcCallsign: string;
+    state: string;
+    centerId: string;
+    firId: string;
+    elevation: number;
+    magnetic: string;
+    transitionAltitude: number;
+    web: string;
 }
 
-export interface ATCPosition {
+export interface BaseAirport {
+    icao: string;
+    iata: string;
+    name: string;
+    city: string;
+    countryId: string;
+    latitude: number;
+    longitude: number;
+    military: boolean;
+}
+
+export interface BasATCPosition {
     id: number;
     airportIcao: string;
     atcCallsign: string;
