@@ -33,11 +33,12 @@ export class airlines {
             },
             responseType: 'json',
         }).then(data => {
-            let newData = Buffer.from(data.data);
-            let str = newData.toString();
-            newData = Buffer.from(str);
+            let buffer = Buffer.from(data.data);
+            let str = buffer.toString();
+
+            buffer = Buffer.from(str);
     
-            return newData;
+            return buffer;
         });
     }
 }
