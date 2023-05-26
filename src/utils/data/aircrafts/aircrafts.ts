@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Aircraft, AircraftVariant } from '../../types/data/index';
-import { userClient } from '../..';
+import { Aircraft, AircraftVariant } from '../../../types/data/index';
+import { userClient } from '../../..';
 
 export class aircrafts {
     constructor() {};

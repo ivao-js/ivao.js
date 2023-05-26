@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { userClient } from '../..';
-import { BasATCPosition, Airport, Metar, Notam, Runway, ShortTaf, Squawk, SquawkGenerated, Taf } from '../../types/data';
+import { userClient } from '../../..';
+import { BasATCPosition, Airport, Metar, Notam, Runway, ShortTaf, Squawk, SquawkGenerated, Taf } from '../../../types/data';
 
 export class airports {
     constructor() {};
@@ -65,7 +65,7 @@ export class airports {
         }).then(data => data.data);
     }
 
-    async genSquawks(icao: string, originIcao: string, destinationIcao: string, flightRules?: 'I' | 'V', military?: boolean): Promise<SquawkGenerated> {
+    async genSquawk(icao: string, originIcao: string, destinationIcao: string, flightRules?: 'I' | 'V', military?: boolean): Promise<SquawkGenerated> {
         return await axios.post<SquawkGenerated>(`https://api.ivao.aero/v2/airports/${icao}/squawks/generate`, {
             originIcao,
             destinationIcao,

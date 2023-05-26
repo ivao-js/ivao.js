@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { AircraftTransponderType } from '../../types/data/index';
-import { userClient } from '../..';
+import { AircraftTransponderType } from '../../../types/data/index';
+import { userClient } from '../../..';
 
 export class aircraftTransponderTypes {
     constructor() {};

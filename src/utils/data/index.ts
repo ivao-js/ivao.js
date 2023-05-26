@@ -1,7 +1,7 @@
-import { aircraftManufacture } from './aircraftManufacture';
-import { aircraftEquipment } from './aircraftEquipment';
-import { aircraftTransponderTypes } from './aircraftTransponderTypes';
-import { aircrafts } from './aircrafts';
+import { aircraftManufacture } from './aircrafts/aircraftManufacture';
+import { aircraftEquipment } from './aircrafts/aircraftEquipment';
+import { aircraftTransponderTypes } from './aircrafts/aircraftTransponderTypes';
+import { aircrafts } from './aircrafts/aircrafts';
 
 export class aircraft {
     constructor() {};
@@ -12,6 +12,11 @@ export class aircraft {
     public aircrafts = new aircrafts();
 }
 
-export { airlines } from './airlines';
-export { airports } from './airports';
-export { atcPositions } from './atcPositions';
+export { airlines } from './airlines/airlines';
+export { airports } from './airports/airports';
+export { atcPositions } from './atcPositions/atcPositions';
+export { centers } from './centers/centers';
+export { countries } from './countries/countries';
+export { creators } from './creators/creators';
+export { languages } from './languages/languages';
+export { navaids } from './navaids/navaids';

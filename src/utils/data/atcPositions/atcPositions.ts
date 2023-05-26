@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { userClient } from '../..';
-import { ATCPosition, Antenna, Position } from '../../types/data/index';
+import { userClient } from '../../..';
+import { ATCPosition, Antenna, Position } from '../../../types/data/index';
 
 export class atcPositions {
     constructor() {};

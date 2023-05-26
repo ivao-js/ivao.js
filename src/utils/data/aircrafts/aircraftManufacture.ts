@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
     AircraftManufacture as AircraftManufactureDto
-} from '../../types/data/index';
-import { userClient } from '../..';
+} from '../../../types/data/index';
+import { userClient } from '../../..';
 
 export class aircraftManufacture {
     constructor() {};
