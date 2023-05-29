@@ -2,4 +2,5 @@
 /src
 /.github
 .env
+publish.md
 test.js
