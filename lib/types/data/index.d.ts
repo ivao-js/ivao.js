@@ -7,6 +7,7 @@ export * from './countries';
 export * from './creators';
 export * from './languages';
 export * from './navaids';
+export * from './subcenters';
 export interface BaseUser {
     id: number;
     firstName: string;

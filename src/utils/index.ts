@@ -6,7 +6,8 @@ import {
     centers,
     countries,
     languages,
-    navaids
+    navaids,
+    subcenters
 } from './data/index';
 
 export class data {
@@ -20,4 +21,5 @@ export class data {
     public countries = new countries();
     public languages = new languages();
     public navaids = new navaids();
+    public subcenters = new subcenters();
 }

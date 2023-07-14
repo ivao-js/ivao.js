@@ -17,3 +17,4 @@ export { countries } from './countries/countries';
 export { creators } from './creators/creators';
 export { languages } from './languages/languages';
 export { navaids } from './navaids/navaids';
+export { subcenters } from './subcenters/subcenters';

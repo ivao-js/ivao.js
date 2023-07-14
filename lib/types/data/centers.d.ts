@@ -29,6 +29,12 @@ export interface SpecialAreas {
     regionMap: object[];
     regionMapPolygon: object[];
 }
+export interface BaseCenter {
+    id: number;
+    name: string;
+    countryId: string;
+    military: boolean;
+}
 export interface BaseSubcenter {
     id: number;
     centerId: string;
