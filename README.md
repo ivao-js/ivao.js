@@ -1,3 +1,1 @@
-Upcoming documentation
-
-THIS IS NOT OFFICIAL
+Welcome on IVAO Documentation
