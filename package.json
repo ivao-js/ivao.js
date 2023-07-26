@@ -25,9 +25,11 @@
   },
   "homepage": "https://github.com/ivao-js/ivao.js#readme",
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "superagent": "^8.0.9"
   },
   "devDependencies": {
-    "@types/node": "^20.1.0"
+    "@types/node": "^20.1.0",
+    "@types/superagent": "^4.1.18"
   }
 }

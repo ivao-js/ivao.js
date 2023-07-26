@@ -7,7 +7,13 @@ import {
     countries,
     languages,
     navaids,
-    subcenters
+    subcenters,
+    runways,
+    sectors,
+    servers,
+    simulators,
+    simulatorVersions,
+    softwares
 } from './data/index';
 
 export class data {
@@ -22,4 +28,10 @@ export class data {
     public languages = new languages();
     public navaids = new navaids();
     public subcenters = new subcenters();
+    public runways = new runways();
+    public sectors = new sectors();
+    public servers = new servers();
+    public simulators = new simulators();
+    public simulatorVersions = new simulatorVersions();
+    public softwares = new softwares();
 }

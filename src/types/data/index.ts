@@ -8,6 +8,11 @@ export * from './creators';
 export * from './languages';
 export * from './navaids';
 export * from './subcenters';
+export * from './sectors';
+export * from './servers';
+export * from './simulators';
+export * from './simulatorVersions';
+export * from './softwares';
 
 export interface BaseUser {
     id: number;
