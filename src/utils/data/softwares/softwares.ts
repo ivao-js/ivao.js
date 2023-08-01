@@ -39,35 +39,15 @@ export class softwares {
     }
 
     async downloadLatestFiles(softwareId: string, softwareType: string, path: PathLike): Promise<void> {
-        let { name } = await this.get(softwareId, softwareId);
-
-        let isDownload: boolean = false;
+        let { name } = await this.get(softwareId, softwareType);
 
         request
             .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/latest/download`)
             .set('apiKey', userClient.options.apiKey)
             .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-            .on('pipe', () => {
-                var loading = (function() {
-                    var h = ['|', '/', '-', '\\'];
-                    var i = 0;
-                    
-                    return setInterval(() => {
-                        i = (i > 3) ? 0 : i;
-                        console.clear();
-                        console.log(h[i]);
-                        i++;
-                    }, 300);
-                })();
-
-                if(isDownload) clearInterval(loading);
-            })
             .on('finish', () => {
-                isDownload = true;
-
                 return console.log(`${name}.zip was download in ${path}`);
-            })
-            .end();
+            });
     }
 
     async getFilesWhereId(softwareFileId: string, softwareId: string, softwareType: string): Promise<SoftwareFiles[]> {
@@ -81,35 +61,15 @@ export class softwares {
     }
 
     async downloadFiles(softwareFileId: string, softwareId: string, softwareType: string, path: PathLike): Promise<void> {
-        let { name } = await this.get(softwareId, softwareId);
-
-        let isDownload: boolean = false;
+        let { name } = await this.get(softwareId, softwareType);
 
         request
             .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/${softwareFileId}/download`)
             .set('apiKey', userClient.options.apiKey)
             .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-            .on('pipe', () => {
-                var loading = (function() {
-                    var h = ['|', '/', '-', '\\'];
-                    var i = 0;
-                    
-                    return setInterval(() => {
-                        i = (i > 3) ? 0 : i;
-                        console.clear();
-                        console.log(h[i]);
-                        i++;
-                    }, 300);
-                })();
-
-                if(isDownload) clearInterval(loading);
-            })
             .on('finish', () => {
-                isDownload = true;
-
                 return console.log(`${name}.zip was download in ${path}`);
-            })
-            .end();
+            });
     }
 
     async files(type: string, operatingSystem: string, version: string, versionSuffix: string, fsdName: string): Promise<SoftwareFiles[]> {

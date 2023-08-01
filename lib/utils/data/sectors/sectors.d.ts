@@ -9,5 +9,5 @@ export declare class sectors {
     getLatestFiles(sectorId: string): Promise<SectorFile[]>;
     downloadLatestFiles(sectorId: string, path: PathLike): Promise<void>;
     getFiles(sectorId: string, sectorFileId: number): Promise<SectorFileExtend>;
-    downloadFiles(sectorId: string, sectorFileId: number, path: PathLike): Promise<any>;
+    downloadFiles(sectorId: string, sectorFileId: number, path: PathLike): Promise<void>;
 }

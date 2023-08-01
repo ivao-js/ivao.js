@@ -13,7 +13,11 @@ import {
     servers,
     simulators,
     simulatorVersions,
-    softwares
+    softwares,
+    specialAreas,
+    squawks,
+    virtualAirlines,
+    motds
 } from './data/index';
 
 export class data {
@@ -34,4 +38,8 @@ export class data {
     public simulators = new simulators();
     public simulatorVersions = new simulatorVersions();
     public softwares = new softwares();
+    public specialAreas = new specialAreas();
+    public squawks = new squawks();
+    public virtualAirlines = new virtualAirlines();
+    public motds = new motds();
 }
