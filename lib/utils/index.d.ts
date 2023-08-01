@@ -1,4 +1,4 @@
-import { aircraft, airlines, airports, atcPositions, centers, countries, languages, navaids, subcenters, runways, sectors, servers, simulators, simulatorVersions, softwares } from './data/index';
+import { aircraft, airlines, airports, atcPositions, centers, countries, languages, navaids, subcenters, runways, sectors, servers, simulators, simulatorVersions, softwares, specialAreas, squawks, virtualAirlines, motds } from './data/index';
 export declare class data {
     constructor();
     aircraft: aircraft;
@@ -16,4 +16,8 @@ export declare class data {
     simulators: simulators;
     simulatorVersions: simulatorVersions;
     softwares: softwares;
+    specialAreas: specialAreas;
+    squawks: squawks;
+    virtualAirlines: virtualAirlines;
+    motds: motds;
 }

@@ -33,7 +33,7 @@ export class subcenters {
                 'Content-Type': 'application/json',
                 'apiKey': userClient.options.apiKey
             },
-            params: { 'mapType': mapType }
+            params: { ...(mapType ? { mapType } : {}) }
         }).then(data => data.data);
     }
 

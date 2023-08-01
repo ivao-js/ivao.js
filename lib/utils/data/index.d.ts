@@ -24,3 +24,7 @@ export { servers } from './servers/servers';
 export { simulators } from './simulators/simulators';
 export { simulatorVersions } from './simulatorVersions/simulatorVersions';
 export { softwares } from './softwares/softwares';
+export { specialAreas } from './specialAreas/specialAreas';
+export { squawks } from './squawks/squawks';
+export { virtualAirlines } from './virtualAirlines/virtualAirlines';
+export { motds } from './motds/motds';

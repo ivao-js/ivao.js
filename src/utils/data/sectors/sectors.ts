@@ -52,33 +52,13 @@ export class sectors {
     async downloadLatestFiles(sectorId: string, path: PathLike): Promise<void> {
         const { country } = await this.get(sectorId);
 
-        let isDownload: boolean = false;
-
         request
             .get(`https://api.ivao.aero/v2/sectors/${sectorId}/files/latest/download`)
             .set('apiKey', userClient.options.apiKey)
             .pipe(fs.createWriteStream(join(`${path}/${country.name.toLowerCase()}.zip`)))
-            .on('pipe', () => {
-                var loading = (function() {
-                    var h = ['|', '/', '-', '\\'];
-                    var i = 0;
-                    
-                    return setInterval(() => {
-                        i = (i > 3) ? 0 : i;
-                        console.clear();
-                        console.log(h[i]);
-                        i++;
-                    }, 300);
-                })();
-
-                if(isDownload) clearInterval(loading);
-            })
             .on('finish', () => {
-                isDownload = true;
-
                 return console.log(`${country.name.toLowerCase()}.zip was download in ${path}`);
-            })
-            .end();
+            });
     }
 
     async getFiles(sectorId: string, sectorFileId: number): Promise<SectorFileExtend> {
@@ -91,35 +71,15 @@ export class sectors {
         }).then(data => data.data);
     }
 
-    async downloadFiles(sectorId: string, sectorFileId: number, path: PathLike): Promise<any> {
+    async downloadFiles(sectorId: string, sectorFileId: number, path: PathLike): Promise<void> {
         const { country } = await this.get(sectorId);
-
-        let isDownload: boolean = false;
 
         request
             .get(`https://api.ivao.aero/v2/sectors/${sectorId}/files/${sectorFileId}/download`)
             .set('apiKey', userClient.options.apiKey)
             .pipe(fs.createWriteStream(join(`${path}/${country.name.toLowerCase()}.zip`)))
-            .on('pipe', () => {
-                var loading = (function() {
-                    var h = ['|', '/', '-', '\\'];
-                    var i = 0;
-                  
-                    return setInterval(() => {
-                        i = (i > 3) ? 0 : i;
-                        console.clear();
-                        console.log(h[i]);
-                        i++;
-                    }, 300);
-                })();
-
-                if(isDownload) clearInterval(loading);
-            })
             .on('finish', () => {
-                isDownload = true;
-
                 return console.log(`${country.name.toLowerCase()}.zip was download in ${path}`);
-            })
-            .end();
+            });
     }
 }

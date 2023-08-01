@@ -13,6 +13,8 @@ export * from './servers';
 export * from './simulators';
 export * from './simulatorVersions';
 export * from './softwares';
+export * from './virtualAirlines';
+export * from './motds';
 
 export interface BaseUser {
     id: number;

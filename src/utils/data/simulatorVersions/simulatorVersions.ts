@@ -3,7 +3,7 @@ import { userClient } from '../../..';
 import { SimulatorVersions } from '../../../types/data';
 
 export class simulatorVersions {
-    constructor() {}; 
+    constructor() {};
 
     async all(name?: string, hasBaseModels?: boolean, version?: string, isActive?: boolean): Promise<SimulatorVersions[]> {
         return await axios.get<SimulatorVersions[]>(`https://api.ivao.aero/v2/simulatorVersions/all`, {
