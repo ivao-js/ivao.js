@@ -6,10 +6,12 @@ export class countries {
     constructor() {};
 
     async get(countryId: string): Promise<Country> {
+        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
+
         return await axios.get<Country>(`https://api.ivao.aero/v2/countries/${countryId}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': userClient.options.apiKey
+                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
             },
             responseType: 'json',
         }).then(data => data.data);

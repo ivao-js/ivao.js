@@ -6,10 +6,12 @@ export class simulatorVersions {
     constructor() {};
 
     async all(name?: string, hasBaseModels?: boolean, version?: string, isActive?: boolean): Promise<SimulatorVersions[]> {
+        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
+
         return await axios.get<SimulatorVersions[]>(`https://api.ivao.aero/v2/simulatorVersions/all`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': userClient.options.apiKey
+                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
             },
             params: {
                 name,
@@ -22,10 +24,12 @@ export class simulatorVersions {
     }
 
     async get(baseModelId: string): Promise<SimulatorVersions> {
+        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
+
         return await axios.get<SimulatorVersions>(`https://api.ivao.aero/v2/simulatorVersions/${baseModelId}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'apiKey': userClient.options.apiKey
+                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
             },
             params: {
                 id: baseModelId

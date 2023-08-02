@@ -17,6 +17,7 @@ import {
     specialAreas,
     squawks,
     virtualAirlines,
+    creators,
     motds
 } from './data/index';
 
@@ -41,5 +42,6 @@ export class data {
     public specialAreas = new specialAreas();
     public squawks = new squawks();
     public virtualAirlines = new virtualAirlines();
+    public creators = new creators();
     public motds = new motds();
 }
