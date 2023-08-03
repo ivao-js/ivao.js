@@ -29,7 +29,7 @@ export interface AircraftEquipment {
     id: string;
     name: string;
     order: number;
-    active: boolean;
+    isActive: boolean;
 }
 
 export interface AircraftVariant {

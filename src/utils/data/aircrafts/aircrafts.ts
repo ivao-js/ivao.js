@@ -1,43 +1,18 @@
-import axios from 'axios';
 import { Aircraft, AircraftVariant } from '../../../types/data/index';
-import { userClient } from '../../..';
+import { apiRequest } from '../../apiRequest';
 
 export class aircrafts {
     constructor() {};
 
     async get(icao: string): Promise<Aircraft> {
-        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
-
-        return await axios.get<Aircraft>(`https://api.ivao.aero/v2/aircrafts/${icao}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
-            },
-            responseType: 'json',
-        }).then(data => data.data);
+        return await apiRequest<Aircraft>(`v2/aircrafts/${icao}`, null, 'GET');
     }
 
     async all(): Promise<Aircraft[]> {
-        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
-
-        return await axios.get<Aircraft[]>('https://api.ivao.aero/v2/aircrafts/all', {
-            headers: {
-                'Content-Type': 'application/json',
-                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
-            },
-            responseType: 'json',
-        }).then(data => data.data);
+        return await apiRequest<Aircraft[]>(`v2/aircrafts/all`, [], 'GET');
     }
 
     async variants(icao: string): Promise<AircraftVariant[]> {
-        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
-
-        return await axios.get<AircraftVariant[]>(`https://api.ivao.aero/v2/aircrafts/${icao}/variants`, {
-            headers: {
-                'Content-Type': 'application/json',
-                ...(userClient.options.type === 'apiKey' ? { 'apiKey': userClient.options.apiKey } : { 'Authorization': `Bearer ${token.token.access_token}` })
-            },
-            responseType: 'json',
-        }).then(data => data.data);
+        return await apiRequest<AircraftVariant[]>(`v2/aircrafts/${icao}/variants`, [], 'GET');
     }
 }
