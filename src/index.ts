@@ -1,15 +1,15 @@
 import { data } from './utils/index';
 import { options } from './types/index';
-import { ClientCredentials } from 'simple-oauth2';
+import { OAuthClientCredentials } from './utils/oauth2/client-credentials';
 
 let userClient: Client;
 
 export class Client {
-    public oauth2: ClientCredentials;
+    public oauth2: OAuthClientCredentials;
 
     constructor(public options: options) {
         if(options.type === 'oauth2') {
-            this.oauth2 = new ClientCredentials({
+            this.oauth2 = new OAuthClientCredentials({
                 client: {
                     id: options.client_id,
                     secret: options.secret_id,
