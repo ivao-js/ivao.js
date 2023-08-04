@@ -1,7 +1,3 @@
-
-![Logo](https://repository-images.githubusercontent.com/644804762/873244be-8200-4f61-b0ff-46f165385766)
-
-
 # IVAO.js
 
 Ivao.js is a module that incorporates the entire [IVAO api](https://api.ivao.aero). This module can be used with an api key and with the new oauth2 system.
@@ -15,15 +11,10 @@ Install my-project with npm
   npm install ivao.js
   cd my-project
 ```
-    
-## Running Tests
 
-To run tests, run the following command
+## OAuth 2.0
 
-```bash
-  npm run test
-```
-
+To obtain access to the new oauth system, please follow the [HQ documentation](https://wiki.ivao.aero/en/home/devops/api/oauth-request).
 
 ## Usage/Examples
 

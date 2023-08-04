@@ -11,7 +11,8 @@
     "url": "git+https://github.com/ivao-js/ivao.js.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "exit 0"
   },
   "keywords": [
     "ivao",
