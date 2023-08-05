@@ -1,7 +1,7 @@
 {
   "name": "ivao.js",
   "version": "1.8.5",
-  "description": "",
+  "description": "Ivao.js is a module that incorporates the entire IVAO api. This module can be used with an api key and with the new oauth2 system.",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -17,10 +17,12 @@
   "keywords": [
     "ivao",
     "nodejs",
-    "api"
+    "api",
+    "typescript",
+    "ivao.js"
   ],
   "author": "Jules010209",
-  "license": "ISC",
+  "license": "GNU General Public License v2.0",
   "bugs": {
     "url": "https://github.com/ivao-js/ivao.js/issues"
   },
