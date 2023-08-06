@@ -3,7 +3,7 @@
 Ivao.js is a module that incorporates the entire [IVAO api](https://api.ivao.aero). This module can be used with an api key and with the new oauth2 system.
 
 ```text
-NOTE: The 1.9.0 version doesen't work!
+NOTE: Versions below 1.9.0 do not work!
 ```
 
 ## Installation
