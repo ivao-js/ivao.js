@@ -1,9 +1,6 @@
-import { userClient } from '../../..';
+import { PathLike } from 'fs';
 import { Software, SoftwareFiles } from '../../../types/data';
-import request from 'superagent';
-import fs, { PathLike } from 'fs';
-import { join } from 'path';
-import { apiRequest } from '../../apiRequest';
+import { apiDownload, apiRequest } from '../../apiRequest';
 
 export class softwares {
     constructor() {}; 
@@ -23,24 +20,7 @@ export class softwares {
     async downloadLatestFiles(softwareId: string, softwareType: string, path: PathLike): Promise<void> {
         let { name } = await this.get(softwareId, softwareType);
 
-        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
-
-        (userClient.options.type === 'apiKey' ? (
-            request
-                .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/latest/download`)
-                .set('apiKey', userClient.options.apiKey)
-                .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-                .on('finish', () => {
-                    return console.log(`${name}.zip was download in ${path}`);
-                })) : (
-            request
-                .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/latest/download`)
-                .set('Authorization', `Bearer ${token.token.access_token}`)
-                .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-                .on('finish', () => {
-                    return console.log(`${name}.zip was download in ${path}`);
-                })
-        ));
+        return await apiDownload(`v2/softwares/${softwareType}/${softwareId}/files/latest/download`, path, null, name);
     }
 
     async getFilesWhereId(softwareFileId: string, softwareId: string, softwareType: string): Promise<SoftwareFiles[]> {
@@ -50,24 +30,7 @@ export class softwares {
     async downloadFiles(softwareFileId: string, softwareId: string, softwareType: string, path: PathLike): Promise<void> {
         let { name } = await this.get(softwareId, softwareType);
 
-        let token = await userClient.oauth2.getToken({ scope: ['tracker', 'profile', 'training', 'configuration'] });
-
-        (userClient.options.type === 'apiKey' ? (
-            request
-                .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/${softwareFileId}/download`)
-                .set('apiKey', userClient.options.apiKey)
-                .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-                .on('finish', () => {
-                    return console.log(`${name}.zip was download in ${path}`);
-                })) : (
-            request
-                .get(`https://api.ivao.aero/v2/softwares/${softwareType}/${softwareId}/files/${softwareFileId}/download`)
-                .set('Authorization', `Bearer ${token.token.access_token}`)
-                .pipe(fs.createWriteStream(join(`${path}/${name}.zip`)))
-                .on('finish', () => {
-                    return console.log(`${name}.zip was download in ${path}`);
-                })
-        ));
+        return await apiDownload(`v2/softwares/${softwareType}/${softwareId}/files/${softwareFileId}/download`, path, null, name);
     }
 
     async files(type: string, operatingSystem: string, version: string, versionSuffix: string, fsdName: string): Promise<SoftwareFiles[]> {
