@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import { Software, SoftwareFiles } from '../../../types/data';
 import { PathLike } from 'fs';
+import { Software, SoftwareFiles } from '../../../types/data';
 export declare class softwares {
     constructor();
     get(softwareId: string, softwareType: string): Promise<Software>;
