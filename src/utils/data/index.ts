@@ -18,6 +18,7 @@ export { atcPositions } from './atcPositions/atcPositions';
 export { centers } from './centers/centers';
 export { countries } from './countries/countries';
 export { creators } from './creators/creators';
+export { divisions } from './divisions/divisions';
 export { languages } from './languages/languages';
 export { navaids } from './navaids/navaids';
 export { subcenters } from './subcenters/subcenters';
