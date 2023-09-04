@@ -1,4 +1,4 @@
-import { data } from './utils/index';
+import { data, core } from './utils/index';
 import { options } from './types/index';
 import { OAuthClientCredentials } from './utils/oauth2/client-credentials';
 declare let userClient: Client;
@@ -7,5 +7,6 @@ export declare class Client {
     oauth2: OAuthClientCredentials;
     constructor(options: options);
     data: data;
+    core: core;
 }
 export { userClient };

@@ -1,4 +1,4 @@
-import { data } from './utils/index';
+import { data, core } from './utils/index';
 import { options } from './types/index';
 import { OAuthClientCredentials } from './utils/oauth2/client-credentials';
 import { ClientCredentials } from 'simple-oauth2';
@@ -30,6 +30,7 @@ export class Client {
     };
 
     public data = new data();
+    public core = new core();
 }
 
 export { userClient };

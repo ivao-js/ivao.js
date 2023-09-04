@@ -18,8 +18,13 @@ import {
     squawks,
     virtualAirlines,
     creators,
+    divisions as dataDivisions,
     motds
 } from './data/index';
+
+import {
+    divisions as coreDivisions
+} from './core/index';
 
 export class data {
     constructor() {};
@@ -43,5 +48,12 @@ export class data {
     public squawks = new squawks();
     public virtualAirlines = new virtualAirlines();
     public creators = new creators();
+    public divisions = new dataDivisions();
     public motds = new motds();
+}
+
+export class core {
+    constructor() {};
+
+    public divisions = new coreDivisions();
 }

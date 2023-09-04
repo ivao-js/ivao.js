@@ -1,6 +1,7 @@
 /node_modules
 /src
 /.github
+tsconfig.json
 .env
 publish.md
 test.js
